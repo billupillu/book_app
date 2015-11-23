@@ -1,10 +1,9 @@
-=begin TDD-ROR
-=== TEST DRIVEN DEVELOPMENT
+=TEST DRIVEN DEVELOPMENT
 ---
 Note:-
-  *This tutorial is for intermediate ROR users. If you are not comfortable with ruby syntax or rails conventions,
-   migrations etc... I highly recommend to take a refresher otherwise welcome to <b>TDD-ROR</b>
+  This tutorial is for intermediate ROR users. If you are not comfortable with ruby syntax or rails conventions,
+  migrations etc... I highly recommend to take a refresher otherwise welcome to +TDD-ROR+
 
-[moto] _"Education should be free"_
+moto:: _Education should be free_
 
-=end
+=
