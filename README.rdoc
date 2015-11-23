@@ -1,5 +1,5 @@
 =TEST DRIVEN DEVELOPMENT
----
+
 Note:-
   This tutorial is for intermediate ROR users. If you are not comfortable with ruby syntax or rails conventions,
   migrations etc... I highly recommend to take a refresher otherwise welcome to *TDD-ROR*
@@ -7,21 +7,95 @@ Note:-
 moto:: <em>Education should be free</em>
 
 
+===Author Model
+---
+We need a model *Author* so before we run model generation command we will generate RSpec Model
+  <tt>rails g rspec:model Author</tt>
+<em>this creates a file  spec/models/author_spec.rb</em>
 
-:include: a.rdoc
+File looks like this
+    <tt>require 'rails_helper'
 
-:include: a
+    RSpec.describe Author, type: :model do
+      pending "add some examples to (or delete) #{__FILE__}"
+    end
+    </tt>
 
---include a
+There are three tests we would like to run
+  1. first_name should be present
+  2. second_name should be present
+  3. A full name after concatenation of first_name + second_name
 
---include a.rdoc
+  so depending on the mini tests above we will edit the _author_spec.rb_ File
+
+      <tt>require 'rails_helper'
+
+      RSpec.describe Author, type: :model do
+
+        it "should have a first_name"
+
+        it "should have a second_name"
+
+        describe "should return a full_name" do
+
+        end
+
+      end
+      </tt>
+
+Save it and run
+    <tt>sumeet@sumi-pc:~/ror/book_app$ rspec</tt>
+the moment you run it it will throw a big ass error
+
+    <tt>/home/sumeet/ror/book_app/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /home/sumeet/ror/book_app/config/application.rb to limit the frameworks that will be loaded.
+    /home/sumeet/ror/book_app/spec/models/author_spec.rb:3:in `<top (required)>': uninitialized constant Author (NameError)
+    	from /usr/local/lib/ruby/gems/2.2.0/gems/rspec-core-3.3.2/lib/rspec/core/configuration.rb:1327:in `load'
+    	from /usr/local/lib/ruby/gems/2.2.0/gems/rspec-core-3.3.2/lib/rspec/core/configuration.rb:1327:in `block in load_spec_files'</tt>
+
+the main error is at the beginning <tt>Run `rake db:migrate` to create it</tt> which means that there is a pending migration.
+so after running <tt>$ rake db:migrate</tt> again run _rspec_ it will give you an big ass error
+<em>uninitialized constant Author</em>
+which means there is no model named Author to run tests against  
+
+so lets create a model
+
+    <tt>$ rails g model Author first_name second_name</tt>
+    <em>if type is not mentioned it is considered to be string by default</em>
+
+    <tt>      invoke  active_record
+      create    db/migrate/20151123081119_create_authors.rb
+      create    app/models/author.rb
+      invoke    rspec
+      conflict  spec/models/author_spec.rb
+    </tt>
+
+Now run migration to update the DB
+
+    <tt>$ rake db:migrate</tt>
+
+    <tt>== 20151123081119 CreateAuthors: migrating =====================================
+    -- create_table(:authors)
+       -> 0.0016s
+    == 20151123081119 CreateAuthors: migrated (0.0018s) ============================
+    </tt>
+
+After successful migration run the _rspec_ command again
+    <tt>$ rspec</tt>
+
+we wil get
+
+    <tt>Pending: (Failures listed here are expected and do not affect your suite's status)
+
+          1) Author should have a first_name
+             # Not yet implemented
+             # ./spec/models/author_spec.rb:5
+
+          2) Author should have a second_name
+             # Not yet implemented
+             # ./spec/models/author_spec.rb:7
 
 
-:include: a.txt 
-
-def my_function
-  puts "yo"
-end
-
+        Finished in 0.00167 seconds (files took 4.22 seconds to load)
+        2 examples, 0 failures, 2 pending</tt>
 
 =
