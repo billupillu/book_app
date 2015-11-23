@@ -17,4 +17,11 @@ moto:: <em>Education should be free</em>
 --include a.rdoc
 
 
+:include: a.txt 
+
+def my_function
+  puts "yo"
+end
+
+
 =
