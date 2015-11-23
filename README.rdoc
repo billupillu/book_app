@@ -8,8 +8,13 @@ moto:: <em>Education should be free</em>
 
 
 
-:include: rdocs/author_model.rdoc
+:include: a.rdoc
 
+:include: a
+
+--include a
+
+--include a.rdoc
 
 
 =
