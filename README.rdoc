@@ -52,15 +52,16 @@ the moment you run it it will throw a big ass error
     	from /usr/local/lib/ruby/gems/2.2.0/gems/rspec-core-3.3.2/lib/rspec/core/configuration.rb:1327:in `load'
     	from /usr/local/lib/ruby/gems/2.2.0/gems/rspec-core-3.3.2/lib/rspec/core/configuration.rb:1327:in `block in load_spec_files'</tt>
 
-the main error is at the beginning <tt>Run `rake db:migrate` to create it</tt> which means that there is a pending migration.
+the main error is at the beginning <tt>Run `rake db:migrate`</tt> to create it which means that there is a pending migration.
 so after running <tt>$ rake db:migrate</tt> again run _rspec_ it will give you an big ass error
 <em>uninitialized constant Author</em>
-which means there is no model named Author to run tests against  
+which means there is no model named Author to run tests against
 
 so lets create a model
 
     <tt>$ rails g model Author first_name second_name</tt>
-    <em>if type is not mentioned it is considered to be string by default</em>
+
+<em>if type is not mentioned it is considered to be string by default</em>
 
     <tt>      invoke  active_record
       create    db/migrate/20151123081119_create_authors.rb
