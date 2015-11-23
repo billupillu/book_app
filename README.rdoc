@@ -6,5 +6,10 @@ Note:-
 
 moto:: <em>Education should be free</em>
 
-:include: rdocs/author_model
+
+
+:include: rdocs/author_model.rdoc
+
+
+
 =
