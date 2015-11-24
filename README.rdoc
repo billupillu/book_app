@@ -57,13 +57,12 @@ so after running <tt>$ rake db:migrate</tt> again run _rspec_ it will give you a
 <em>uninitialized constant Author</em>
 which means there is no model named Author to run tests against
 
-so lets create a model
+so lets create a model (<em>if type is not mentioned it is considered to be string by default</em>)
 
-    <tt>$ rails g model Author first_name second_name</tt>
+    <tt>
+      $ rails g model Author first_name second_name
 
-<em>if type is not mentioned it is considered to be string by default</em>
-
-    <tt>      invoke  active_record
+          invoke  active_record
       create    db/migrate/20151123081119_create_authors.rb
       create    app/models/author.rb
       invoke    rspec
@@ -99,4 +98,5 @@ we wil get
         Finished in 0.00167 seconds (files took 4.22 seconds to load)
         2 examples, 0 failures, 2 pending</tt>
 
+we see this because none of our specs have been implemented
 =
