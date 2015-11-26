@@ -5,4 +5,6 @@ class Author < ActiveRecord::Base
   def full_name
     "#{first_name} #{second_name}"
   end
+
+  scope :recent, lambda {order("authors.created_at DESC")}
 end
