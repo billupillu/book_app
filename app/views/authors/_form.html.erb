@@ -10,7 +10,11 @@
 <br />
 
 <div class="form-group actions control-group">
-  <%=f.submit class: "btn btn-primary"%>
+  <%if @t == 1%>
+    <%=f.submit class: "btn btn-primary"%>
+  <%else%>
+    <%=f.submit class: "btn btn-success"%>
+  <%end%>
 </div>
 <%end%>
 </div>
