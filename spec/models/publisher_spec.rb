@@ -5,4 +5,5 @@ RSpec.describe Publisher, type: :model do
   it do
     should validate_uniqueness_of(:name).case_insensitive
   end
+  it {should have_many(:books)}
 end
