@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126173213) do
+ActiveRecord::Schema.define(version: 20151127203943) do
 
   create_table "athors", force: :cascade do |t|
     t.string   "first_name"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20151126173213) do
     t.string   "second_name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string   "title",        limit: 100
+    t.string   "isbn",         limit: 13
+    t.text     "description"
+    t.date     "published_at"
+    t.integer  "publisher_id"
+    t.integer  "page_count"
+    t.decimal  "price",                    precision: 16, scale: 2
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   create_table "publications", force: :cascade do |t|

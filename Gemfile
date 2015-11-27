@@ -32,6 +32,6 @@ group :test do
 	gem 'capybara'
 	gem 'faker'
 	gem 'database_cleaner'
-	gem 'shoulda-matchers', '3.0.0'
+	gem 'shoulda-matchers', '2.8.0'
 end
 
