@@ -2,7 +2,7 @@ class BooksController < ApplicationController
  before_action :find_books, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.all
+    @books = Book.recent
   end
 
   def show
@@ -10,6 +10,8 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @publishers = Publisher.all
+    @authors = Author.all
   end
 
   def create
@@ -19,11 +21,15 @@ class BooksController < ApplicationController
       redirect_to @book
     else
       flash[:danger] = "Book has not been created"
+      @publishers = Publisher.all
+      @authors = Author.all
       render :new
     end
   end
 
   def edit
+    @publishers = Publisher.all
+    @authors = Author.all
   end
 
   def update
@@ -49,6 +55,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :isbn, :description, :published_at, :publisher_id, :page_count, :price)
+      params.require(:book).permit(:title, :isbn, :description, :published_at, :publisher_id, :page_count, :price,author_ids: [])
     end
 end

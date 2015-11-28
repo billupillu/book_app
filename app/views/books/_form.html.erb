@@ -1,0 +1,56 @@
+<div class="col-md-6 col-md-offset-3" style="text-align:center">
+<%=bootstrap_form_for(@book, :html=> {class: 'form-horizontal'}) do |f| %>
+	
+	<div class="form-group">
+		<%=f.text_field :title, hide_label: true, placeholder: "enter Title (ex: Java Book)", id: "bookTitle", class: "form-control"%>
+	</div>
+
+	<div class="form-group">
+		<%=f.text_field :isbn, hide_label: true, placeholder: "enter ISBN (ONLY 13 DIGITS)", id: "bookIsbn", class: "form-control"%>
+	</div>
+
+	<div class="form-group row" >
+		
+		<%=f.number_field :page_count, hide_label: true, placeholder: "enter Page Count (ex: 584)", id: "bookPage_count", class: "form-control"%>
+		
+		<%=f.number_field :price, hide_label: true, placeholder: "enter Price (ex: 38.88)", id: "bookPrice", class: "form-control"%>
+		
+	</div>
+
+	<div class="form-group">
+		<%=f.text_area :description, hide_label: true, placeholder: "enter description (not more than 500 characters)", id: "bookDescription", class: "form-control"%>
+	</div>
+
+	<div class="form-group">
+		<%=f.date_field :published_at, hide_label: true, id: "bookPublished_at", class: "form-control"%>
+	</div>
+
+	<div class="form-group">
+		<%=f.select :publisher_id, @publishers.map{|publisher| [publisher.name, publisher.id]}, prompt: "Select Publisher", class: "form-control"%>
+	</div>
+
+	<div class="form-group">
+		<%=f.collection_check_boxes :author_ids, @authors, :id, :full_name,class: "form-control"%>
+	</div>
+
+	<div class="form-group actions control-group">
+		<%=f.submit class: "btn btn-info"%>
+	</div>
+<%end%>
+<br/><br/>
+</div>
+
+<%=javascript_tag do%>
+	$('#bookIsbn').on("input", function(e){
+		var a = $('#bookIsbn').val();
+		if(a.length==13){
+			$('#bookIsbn').css({"border-color":"#64b898","border-style":"solid","border-width":"5px"});
+		}
+		else{$('#bookIsbn').css({"border-color":"#ff6666","border-style":"solid","border-width":"5px"});}
+
+		if(a.length>13){alert("only 13 character permitted");
+		$('#bookIsbn').val(a.substring(0,13));}
+
+	});
+
+<%end%>

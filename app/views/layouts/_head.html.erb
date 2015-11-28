@@ -6,13 +6,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" style="font-size:30px;letter-spacing:7px">Sasti Books</a>
+      <a class="navbar-brand" href="#" style="font-size:30px;letter-spacing:7px;color:#CCCCFF;">Sasti Books</a><%=image_tag 'logo.svg',id: "logo"%>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><%=link_to "Home", "#"%></li>
         <li><%=link_to "Authors",authors_path%></li>
-        <li><a href="#">Page 2</a></li>
+        <li><%=link_to "Books", books_path%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
