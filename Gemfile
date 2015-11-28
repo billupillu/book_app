@@ -11,6 +11,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'carrierwave-dropbox'
+gem 'mini_magick'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'

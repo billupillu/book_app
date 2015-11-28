@@ -22,6 +22,10 @@ RSpec.feature "Creating Author" do
 		check author1.full_name 
 		check author2.full_name
 
+		#upload a file
+
+		attach_file "book_cover", "app/assets/images/test_book.jpg"
+
 		click_button "Create Book"
 
 		expect(page).to have_content("Book has been created") 
