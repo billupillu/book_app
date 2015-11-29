@@ -13,7 +13,7 @@
 		
 		<%=f.number_field :page_count, hide_label: true, placeholder: "enter Page Count (ex: 584)", id: "bookPage_count", class: "form-control"%>
 		
-		<%=f.number_field :price, hide_label: true, placeholder: "enter Price (ex: 38.88)", id: "bookPrice", class: "form-control"%>
+		<%=f.text_field :price, hide_label: true, placeholder: "enter Price (ex: 38.88)", id: "bookPrice", class: "form-control"%>
 		
 	</div>
 
@@ -30,7 +30,8 @@
 	</div>
 
 	<div class="form-group">
-		<%=f.collection_check_boxes :author_ids, @authors, :id, :full_name,class: "form-control"%>
+		<%#=f.select :author_ids, @authors.all.map{|author| [author.id, author.full_name]},class: "form-control",id: "chosen_select", include_blank: true%>
+		<%= f.collection_select :author_ids, @authors, :id, :full_name, {}, { class: "form-control",id: 'chosen_select', multiple: true } %>
 	</div>
 
 	<div class="form-group">

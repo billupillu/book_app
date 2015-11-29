@@ -14,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave-dropbox'
 gem 'mini_magick'
 gem 'figaro'
+gem 'chosen-rails'
+gem 'compass-rails'
 
 group :development, :test do
   gem 'byebug'
@@ -24,6 +26,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-nav'
   gem 'fabrication'
+  gem 'faker'
 end
 
 group :development do
@@ -33,7 +36,6 @@ end
 
 group :test do
 	gem 'capybara'
-	gem 'faker'
 	gem 'database_cleaner'
 	gem 'shoulda-matchers', '2.8.0'
 end

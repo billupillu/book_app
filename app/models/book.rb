@@ -12,4 +12,6 @@ class Book < ActiveRecord::Base
 	validates :price, numericality: {greater_than_or_equal_to: 0.0}
 
 	scope :recent, lambda {order("authors.created_at DESC")}
+
+	mount_uploader :book_cover, BookCoverUploader
 end
