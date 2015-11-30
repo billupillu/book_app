@@ -16,8 +16,12 @@
         <li><%=link_to "Users", users_path%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <%if session[:user_id]%>
+        <li><a href="/signout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+        <%else%>
         <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/signin"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+        <%end%>
       </ul>
     </div>
   </div>

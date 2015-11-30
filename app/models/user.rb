@@ -6,5 +6,10 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, 
 					  format: {with: regx},
 					  uniqueness: true
+
+	def self.authenticate(email, password)
+		user = User.find_by(email: email)
+		user && user.authenticate(password)
+	end	
 	
 end

@@ -8,7 +8,11 @@
 </head>
 <body>
 <%=render 'layouts/head'%>
-<div style="position:absolute;margin-top:20px;height:20px;">
+<%if flash[:success]%>
+<div class="a-s" style="position:absolute;margin-top:20px;height:60px;width:500px;left:50%;margin-left:-250px;text-align:center;">
+<%else%>
+<div class="a-d" style="position:absolute;margin-top:20px;height:60px;width:500px;left:50%;margin-left:-250px;text-align:center;">
+<%end%>
   <%flash.each do |name,msg|%>
     <div class="alert alert-<%='#{name}'%>">
       <a href="#" class="close" data-dismiss="alert">&#215;</a>
@@ -17,6 +21,8 @@
   <%end%>
 </div>
 <%= yield %>
+<style type="text/css">.a-s{background-color: rgb(58,193,98) !important;color:#fff;}
+.a-d{background-color: #ff6666 !important;color:#fff;}</style>
 
 </body>
 </html>
