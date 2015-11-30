@@ -16,6 +16,7 @@ gem 'mini_magick'
 gem 'figaro'
 gem 'chosen-rails'
 gem 'compass-rails'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'byebug'
