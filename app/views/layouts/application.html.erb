@@ -9,20 +9,30 @@
 <body>
 <%=render 'layouts/head'%>
 <%if flash[:success]%>
-<div class="a-s" style="position:absolute;margin-top:20px;height:60px;width:500px;left:50%;margin-left:-250px;text-align:center;">
+<div id="fflash" class="a-s" style="position:absolute;margin-top:20px;height:60px;width:500px;left:50%;margin-left:-250px;text-align:center;">
 <%else%>
-<div class="a-d" style="position:absolute;margin-top:20px;height:60px;width:500px;left:50%;margin-left:-250px;text-align:center;">
+<div id="fflash" class="a-d" style="position:absolute;margin-top:20px;height:60px;width:500px;left:50%;margin-left:-250px;text-align:center;">
 <%end%>
   <%flash.each do |name,msg|%>
-    <div class="alert alert-<%='#{name}'%>">
+    <div id="k" class="alert alert-<%='#{name}'%>">
       <a href="#" class="close" data-dismiss="alert">&#215;</a>
       <%=content_tag :div, msg, id: "flash_#{name}"if msg.is_a?(String)%>
     </div>
   <%end%>
 </div>
 <%= yield %>
-<style type="text/css">.a-s{background-color: rgb(58,193,98) !important;color:#fff;}
-.a-d{background-color: #ff6666 !important;color:#fff;}</style>
+<style type="text/css">
+<%if flash[:success] ||flash[:danger]%>
+.a-s{background-color: rgb(58,193,98) !important;color:#fff;}
+.a-d{background-color: #ff6666 !important;color:#fff;}
+<%end%>
+</style>
+
+<%=javascript_tag do%>
+$('#k').click(function(){
+  $('#fflash').fadeOut(450);
+});
+<%end%>
 
 </body>
 </html>

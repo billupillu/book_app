@@ -10,4 +10,19 @@ class ApplicationController < ActionController::Base
 
 		helper_method :current_user
 
+		def require_signin
+			unless current_user
+				flash[:danger] = "Please signin first"
+				session[:desired_destination] = request.fullpath
+				redirect_to signin_path
+			end
+		end
+
+		def require_admin
+			unless current_user.admin?
+				flash[:danger] = "Admin access only"
+				redirect_to root_path
+			end
+		end	
+
 end

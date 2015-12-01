@@ -1,6 +1,9 @@
 require "rails_helper"
+require "support/macro"
 
 RSpec.feature "Creating Author" do
+  let(:admin) {Fabricate(:admin)}
+  before {sign_in_as admin}
   scenario "with valid input succeed" do
     visit root_path
     click_link "Authors"

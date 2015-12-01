@@ -1,20 +1,73 @@
 require 'rails_helper'
+require 'support/macro'
 
 RSpec.describe AuthorsController, type: :controller do
+	let(:admin) {Fabricate(:admin)}
+	let(:user) {Fabricate(:user)}
+
+	before {set_current_admin admin}
+
   describe "GET #index" do
-    it "returns a sucessfull http success code" do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
+  	context "fo guest user" do
+  		before {clear_current_user}
+  		it "redirects to signin page for guest user" do
+  			get :index
+  			expect(response).to redirect_to signin_path
+  		end
+  		it "sets a flash message to sign in" do
+  			get :index
+  			expect(flash[:danger]).to be_present
+  		end
+  	end
+  	
+  	context "for shopper user" do
+      before {set_current_user}
+      it "redirects to root path" do
+        get :index
+        expect(response).to redirect_to root_path
+      end
+  	end
+
+  	context "for admin users" do
+     		it "returns a sucessfull http success code" do
+       			 get :index
+       		 	expect(response).to have_http_status(:success)
+     		end
+  	end
   end
 
   describe "GET #show" do
-    it "returns sucessfull http status code for show" do
-      author = Fabricate(:author)
-      #require "pry";binding.pry
-      get :show, id: author.id
-      expect(response).to have_http_status(:success)
+    let(:author) {Fabricate(:author)}
+    
+    context "for guest users" do
+      before {clear_current_user}
+      it "redirects to signin path for unauthenticated users" do
+        get :show, id: user
+        expect(response).to redirect_to signin_path
+      end  
     end
+
+    context "for shopper users" do
+      before do
+        clear_current_user
+        set_current_user
+        it "redirects to root path" do
+          get :show, id: user
+          expect(response).to redirect_to root_path
+        end
+      end
+
+    end
+
+    context "for admin users" do
+      it "returns sucessfull http status code for show" do
+        author = Fabricate(:author)
+        #require "pry";binding.pry
+        get :show, id: author.id
+        expect(response).to have_http_status(:success)
+      end
+    end
+    
   end
 
   describe "GET #new" do
