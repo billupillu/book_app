@@ -1,9 +1,14 @@
 require "rails_helper"
+require "support/macro"
 
 RSpec.feature "Creating Author" do
+
 	let!(:oriely) {Fabricate(:publisher, name: "ORiely Press")}
 	let!(:author1) {Fabricate(:author)}
 	let!(:author2) {Fabricate(:author)}
+
+	let(:admin) {Fabricate(:admin)}
+  	before {sign_in_as admin}
 
 	scenario "with valid input succeeds" do
 		visit root_path
@@ -19,8 +24,8 @@ RSpec.feature "Creating Author" do
 		fill_in "bookPublished_at", with: "2012-01-01"
 		#from the combo box
 		select "ORiely Press", from: "Publisher"
-		check author1.full_name 
-		check author2.full_name
+		select author1.full_name, from: "chosen_select" 
+		select author2.full_name, from: "chosen_select"
 
 		#upload a file
 

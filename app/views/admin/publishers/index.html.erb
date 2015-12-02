@@ -1,0 +1,5 @@
+<%=link_to "Add New Publisher", new_admin_publisher_path%>
+
+<%=@publishers.each do |p|%>
+	<h3><%=p.name%></h3>
+<%end%>	

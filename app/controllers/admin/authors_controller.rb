@@ -1,4 +1,4 @@
-class AuthorsController < ApplicationController
+class Admin::AuthorsController < Admin::BaseController
   before_action :require_signin
   before_action :require_admin
   before_action :find_author, only: [:show, :edit, :update, :destroy]
@@ -18,7 +18,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
     if @author.save
       flash[:success] = "Author has been successfully created"
-      redirect_to @author
+      redirect_to [:admin, @author]
     else
       flash[:danger] = "Author has not been created"
       render :new
@@ -31,7 +31,7 @@ class AuthorsController < ApplicationController
   def update
     if @author.update(author_params)
       flash[:success] = "Author has been successfuly Updated"
-      redirect_to @author
+      redirect_to [:admin, @author]
     else
       flash[:danger] = "Author has not been Updated"
       render :edit
@@ -41,7 +41,7 @@ class AuthorsController < ApplicationController
   def destroy
     @author.destroy
     flash[:success] = "Author has been successfuly Deleted"
-    redirect_to authors_path
+    redirect_to admin_authors_path
   end
 
   private

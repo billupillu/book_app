@@ -1,5 +1,5 @@
 <div class="col-md-6 col-md-offset-3" style="text-align:center">
-<%=bootstrap_form_for(@book, :html=> {class: 'form-horizontal'}) do |f| %>
+<%=bootstrap_form_for([:admin, @book], :html=> {class: 'form-horizontal'}) do |f| %>
 	
 	<div class="form-group">
 		<%=f.text_field :title, hide_label: true, placeholder: "enter Title (ex: Java Book)", id: "bookTitle", class: "form-control"%>

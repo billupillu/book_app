@@ -17,3 +17,16 @@
 //= require scaffold
 //= require turbolinks
 //= require_tree .
+
+// $(document).ready(function(){
+// 	var idarray = ["li1","li2","li3","li4","li5"]
+
+// 	$("#li1").click(function(){
+		
+// 	});	
+	
+// });
+
+
+      
+   
