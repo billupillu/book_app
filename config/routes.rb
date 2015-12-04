@@ -14,5 +14,10 @@ Rails.application.routes.draw do
 	end
 	
 	resources :users, only: [:index,:show, :new, :create, :destroy]
+	resources :catalogs, only: [:index, :show] do
+		collection do
+			post :search, to: "catalogs#search"
+		end
+	end
 
 end

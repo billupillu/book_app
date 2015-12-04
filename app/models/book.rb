@@ -11,7 +11,11 @@ class Book < ActiveRecord::Base
 	validates :page_count, numericality: {only_integer: true, greater_than: 0}
 	validates :price, numericality: {greater_than_or_equal_to: 0.0}
 
-	scope :recent, lambda {order("authors.created_at DESC")}
+	scope :recent, lambda {order("books.created_at DESC")}
 
 	mount_uploader :book_cover, BookCoverUploader
+
+	def self.search_by_title(title)
+		where('title LIKE ?', "%#{title}%").order(:title)
+	end
 end

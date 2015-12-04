@@ -3,9 +3,63 @@
  @import "rails_bootstrap_forms";
  @import "superhero";
  @import "chosen";
+ @import "zoomText";
+
 
 #logo{width:100px;margin-left: 20%;}
 #myNavbar{margin-top: 4%;}
 .navbar-nav{margin-left: 20%;font-size: 14px;}
 .heading{background-color:rgb(78,93,108);margin-top: -2%;margin-bottom: 3%;
 		line-height: 1.8em; }
+#catalog{width:90px;margin-left: -1%;}		
+.showHead{height: 250px;
+			width:180px;
+			position: absolute;
+			left: 50%;
+			margin-left: -90px;
+			top: 50%;
+			margin-top: -174px;
+			}
+.bookTitle{
+		font-family: 'Righteous',ubuntu;
+		letter-spacing: 6px;
+		word-spacing: 10px;
+		color: #3C5460;
+		text-shadow:2px 2px 2px #fff,-2px -2px 2px #fff;
+		text-align: center;
+}	
+
+.box{
+	box-shadow: 1px 1px 10px #dfdddf;
+	float:left;
+	margin: 5px;
+	padding: 5px;
+	overflow: hidden;
+	width: 220px;
+	height: 300px;
+	line-height: 1.4em;
+	transition:all 0.4s linear;
+}		
+.box img{
+	display: block;
+	width: 100%;
+	transition:all 0.4s linear;
+	
+
+}
+
+#search_field{
+	width:380px;
+	height: 44px;
+	box-shadow: none;
+	border:none;
+}
+.btn-default{
+	background-color: #ecc731 ;
+	font-size: 12px !important;
+	text-shadow: 1px 1px 2px #191919;
+	height: 43px;
+	margin-top: -2px;
+	width:90px;
+	margin-left: -93px;	
+}

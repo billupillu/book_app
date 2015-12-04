@@ -1,2 +1,37 @@
-<h1>Catalogs#index</h1>
-<p>Find me in app/views/catalogs/index.html.erb</p>
+<h1 style="text-align:center;letter-spacing:9px;color:rgb(58,193,98);font-size:51px;" 
+><u>Catalouges</u> <%=image_tag 'catalog.png', id: "catalog"%></h1>
+
+
+<ul class="photo-grid books" d="books">
+<%@books.each do |book|%>	
+	<li class="box">
+		<%=link_to catalog_path(book.id) do%>
+			<figure>
+				<%#if book.book_cover==nil%>
+					<%=image_tag 'default.png'%>
+				<%#else%>
+					<%#=image_tag "#{book.book_cover}"%>
+	  			<%#end%>
+				<figcaption>
+					<p><%=book.title%></p>
+					<p><%=number_to_currency(book.price)%></p>
+				</figcaption>
+			</figure>
+		<%end%>
+	</li>
+<%end%>	
+</ul>	
+
+<%#=link_to catalog_path(book.id) do%>
+		<%#if book.book_cover==nil%>
+	<!-- 	<div class="grid-item"><%#=image_tag 'default.png'%></div> -->
+		<%#else%>
+	<!--   <div class="grid-item"><%#=image_tag "#{book.book_cover}"%></div> -->
+	  	<%#end%>
+   <%#end%>
+
+   		<%#if book.book_cover==nil%>
+			<%#=image_tag 'default.png'%>
+		<%#else%>
+			<%#=image_tag "#{book.book_cover}"%>
+	  	<%#end%>

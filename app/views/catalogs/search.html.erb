@@ -1,0 +1,30 @@
+<article>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<h1>
+				<span class="glyphicon glyphicon-search"></span>
+				 Searched Results
+			</h1>
+		</div>
+	</div>
+		<ul class="photo-grid books">
+		<%@books.each do |book|%>	
+	<li class="box">
+		<%=link_to catalog_path(book.id) do%>
+			<figure>
+				<%if book.book_cover==nil%>
+					<%=image_tag 'default.png'%>
+				<%else%>
+					<%=image_tag "#{book.book_cover}"%>
+	  			<%end%>
+				<figcaption>
+					<p><%=book.title%></p>
+					<p><%=number_to_currency(book.price)%></p>
+				</figcaption>
+			</figure>
+		<%end%>
+	</li>
+<%end%>	
+</ul>	
+	
+</article>

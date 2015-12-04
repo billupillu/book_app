@@ -1,0 +1,90 @@
+<div class="row" style="width:101vw;height:250px;background-image:url('<%=@book.book_cover%>');-webkit-filter:blur(7px);filter:blur(7px);">
+	
+</div>
+<%=image_tag "#{@book.book_cover}",class: "showHead img-thumbnail"%>
+<div class="row" style="width:101vw;">
+	<div class="col-md-6 col-md-offset-3">
+		
+			<h1 class="bookTitle"><%=@book.title%></h1>
+		
+	</div>
+</div>
+<br>
+
+<div class="row" style="width:100vw;color:#fff;padding-left:30px;padding-right:30px;">
+	<div class="col-md-3 col-md-offset-3" style="background-color:#34b3a0;height:70px;text-align:right;">
+		
+		<h3 style="color:#ff6666"><u>Price</u>:</h3>
+		
+	</div>
+
+	<div class="col-md-3" style="background-color:#838EC2;height:70px;text-align:left;">
+		
+		<h3><%=number_to_currency(@book.price)%></h3>
+		
+	</div>
+</div>
+<br>
+
+<div class="row" style="width:100vw;">
+	<div class="col-md-6 col-md-offset-3">
+	<div class="panel panel-warning">
+	<div class="panel-heading"><h3 style="color:#fff;text-align:center;">Description</h3>
+	</div>
+
+	<div class="panel-body">
+		<p style="color:#fff"> <p1 style="margin-left:1%;color:#fff;"><%=truncate("#{@book.description}",length: 200)%></p1></p>
+	</div>
+	</div>
+
+		
+	</div>
+</div>
+
+<div class="row" style="width:100vw;text-align:center">
+	<div class="col-md-3 col-md-offset-3">
+		<div class="panel panel-info">
+			<div class="panel-heading"><h3>Publisher</h3></div>
+			<div class="panel-body">
+				<h4><%=@book.publisher.name%></h4>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col-md-3">
+	<div class="panel panel-success">
+			<div class="panel-heading"><h3>Authors</h3></div>
+			<div class="panel-body">
+				<%@book.authors.each do |a|%>
+				<h4><%=a.full_name%></h4>
+				<%end%>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row" style="width:100vw;text-align:center">
+	<div class="col-md-3 col-md-offset-3">
+		<div class="panel panel-danger">
+			<div class="panel-heading">
+			<h3>Page Count</h3>
+			</div>
+			<div class="panel-body"><h4><%=@book.page_count%> pages</h4>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+			<h3>Publishing Date</h3>
+			</div>
+			<div class="panel-body">
+				<h4><%=@book.published_at.strftime("%B %d, %Y")%></h4>
+			</div>
+		</div>
+	</div>	
+</div>	
+<br/><br/>

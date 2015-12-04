@@ -1,0 +1,11 @@
+<div class="row" style="width:100vw">
+	<div class="col-md-12">
+		<div class="well" style="text-align:center;margin-left:1%;padding:5px;">
+			<%=form_tag (search_catalogs_path) do%>
+				<%=text_field_tag :search_word, nil, placeholder: "Searh for Book", id: "search_field"%>
+				<%=submit_tag "Search Book", class: "btn btn-default"%>	
+			<%end%>
+		</div>
+	</div>	
+</div>
+

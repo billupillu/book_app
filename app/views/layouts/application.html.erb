@@ -5,9 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <%=render 'layouts/head'%>
+<%=render 'layouts/search'%>
 <%if flash[:success]%>
 <div id="fflash" class="a-s" style="position:absolute;margin-top:20px;height:60px;width:500px;left:50%;margin-left:-250px;text-align:center;">
 <%else%>
