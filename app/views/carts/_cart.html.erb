@@ -1,0 +1,9 @@
+<div id="cart-items">
+	<%=render cart.cart_items%>
+</div>
+<hr />
+<div id="cart-total">
+	<strong>Total:</strong> <%=number_to_currency(cart.total_sale) || number_to_currency(0)%>
+</div>
+<br>
+<%=button_to "Clear Cart", cart_path(cart), method: :delete, data: {confirm: "Are you sure to clear the cart"}, class: "btn btn-danger"%>

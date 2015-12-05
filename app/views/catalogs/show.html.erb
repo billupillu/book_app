@@ -1,7 +1,7 @@
-<div class="row" style="width:101vw;height:250px;background-image:url('<%=@book.book_cover%>');-webkit-filter:blur(7px);filter:blur(7px);">
+<div class="row" style="width:101vw;height:250px;background-image:url(<%=asset_path 'default.png'%>);-webkit-filter:blur(7px);filter:blur(7px);">
 	
 </div>
-<%=image_tag "#{@book.book_cover}",class: "showHead img-thumbnail"%>
+<%=image_tag "default.png",class: "showHead img-thumbnail"%>
 <div class="row" style="width:101vw;">
 	<div class="col-md-6 col-md-offset-3">
 		
@@ -12,16 +12,25 @@
 <br>
 
 <div class="row" style="width:100vw;color:#fff;padding-left:30px;padding-right:30px;">
-	<div class="col-md-3 col-md-offset-3" style="background-color:#34b3a0;height:70px;text-align:right;">
+	<div class="col-md-3 col-md-offset-3" style="background-color:#34b3a0;height:70px;text-align:center;">
 		
-		<h3 style="color:#ff6666"><u>Price</u>:</h3>
+		<h3 style="color:#fff">
+			<p1 style="color:#ff6666">Price</p1>: <u><%=number_to_currency(@book.price)%></u>
+		</h3>
 		
 	</div>
 
-	<div class="col-md-3" style="background-color:#838EC2;height:70px;text-align:left;">
+	<div class="col-md-2" style="background-color:#838EC2;height:70px;text-align:right;padding-top:1%;padding-right:2px;margin-right:0;">
 		
-		<h3><%=number_to_currency(@book.price)%></h3>
+		<%=button_to cart_items_path(book_id: @book.id), remote: true, class: "cart" do%>
+			<h4 style="color:#fff; margin-right:-2%;">Add To Cart</h4>
+		<%end%>
 		
+	</div>
+	<div class="col-md-1" style="background-color:#838EC2;height:70px;text-align:left;padding-left:0;margin-left:0;">
+		<%=button_to cart_items_path(book_id: @book.id), remote: true, class: "cart" do%>
+			<h1 style="margin-left:-2%;"><span class="glyphicon glyphicon-shopping-cart"></span></h1>
+		<%end%>	
 	</div>
 </div>
 <br>

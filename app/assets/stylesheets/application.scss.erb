@@ -4,7 +4,7 @@
  @import "superhero";
  @import "chosen";
  @import "zoomText";
-
+ @import "carts";
 
 #logo{width:100px;margin-left: 20%;}
 #myNavbar{margin-top: 4%;}
@@ -18,7 +18,7 @@
 			left: 50%;
 			margin-left: -90px;
 			top: 50%;
-			margin-top: -174px;
+			margin-top: -100px;
 			}
 .bookTitle{
 		font-family: 'Righteous',ubuntu;
@@ -62,4 +62,28 @@
 	margin-top: -2px;
 	width:90px;
 	margin-left: -93px;	
+}
+.cart{background-color: transparent !important;
+		box-shadow: none;border-radius: none;border: none;
+		padding: 0;transition:all 0.3s linear;
+		h4{transition:all 0.3s linear;}}
+
+.cart:hover{color:rgb(58,193,98) !important;}		
+.cart h4:hover{color:rgb(58,193,98) !important;}	
+
+#side_cart{height: 700px;width: 280px;
+			position: absolute;
+			float: right;
+			background-color: #4E5D6C;
+			margin-left: 77%;
+			margin-top: -67%;
+			padding-top: 0;
+			color: #fff;
+			h2{background-color: rgb(58,193,98);
+				color:#fff;margin-top: 0;
+				text-align: center;
+				letter-spacing: 6px;
+				line-height: 2em;}
+				#cartUp{z-index: 3;position: relative;}
+
 }

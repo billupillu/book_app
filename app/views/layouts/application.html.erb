@@ -21,8 +21,25 @@
       <%=content_tag :div, msg, id: "flash_#{name}"if msg.is_a?(String)%>
     </div>
   <%end%>
+  <%if flash%>
+      <%=javascript_tag do%>
+          setTimeout(function(){
+            $('#fflash').fadeOut(400);
+            
+          },4000);
+      <%end%>
+  <%end%>
 </div>
+<!--=================== YIELD ==================== -->
 <%= yield %>
+<!--============================================== -->
+<%if request.fullpath == root_path%>
+  <!-- nothing -->
+<%else%>
+  <div id="side_cart" class=""><h2>Your Cart</h2>
+  <div id="cartUp"><%=render @cart if @cart%></div>
+  </div>
+<%end%>  
 <style type="text/css">
 <%if flash[:success] ||flash[:danger]%>
 .a-s{background-color: rgb(58,193,98) !important;color:#fff;}

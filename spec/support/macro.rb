@@ -22,3 +22,7 @@ def sign_in_as(admin)
 	click_button "Sign In"
 	expect(page).to have_content("Successfuly Signed in")
 end
+
+def save_session_cart(cart = nil)
+	session[:cart_id] = (cart || Fabricate(:cart)).id
+end
