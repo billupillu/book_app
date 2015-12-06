@@ -1,6 +1,6 @@
 class CatalogsController < ApplicationController
   def index
-  	@books = Book.all
+  	@books = Book.paginate(page: params[:page], per_page: 6)
   	set_cart if session[:cart_id]
   end
 

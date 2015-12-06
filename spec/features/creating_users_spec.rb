@@ -12,6 +12,12 @@ RSpec.feature "CreatingUsers", type: :feature do
 		fill_in "userPassword", with: "passwordsecure"
 		fill_in "userPasswordConfirmation", with: "passwordsecure"
 
+		fill_in "addressAddress", with: 'Suite 850'
+		fill_in 'addressCity', with: 'Miami'
+		fill_in 'addressState', with: "Florida"
+		fill_in 'addressZipcode', with: "12574"
+
+
 		click_button "Create User"
 
 		expect(page).to have_content("User has been created")
@@ -26,6 +32,11 @@ RSpec.feature "CreatingUsers", type: :feature do
 		fill_in "userEmail", with: "#{Faker::Internet.email}"
 		fill_in "userPassword", with: "passwordsecure"
 		fill_in "userPasswordConfirmation", with: "passwordsecure"
+
+		fill_in "addressAddress", with: 'Suite 850'
+		fill_in 'addressCity', with: 'Miami'
+		fill_in 'addressState', with: "Florida"
+		fill_in 'addressZipcode', with: "12574"
 
 		click_button "Create User"
 

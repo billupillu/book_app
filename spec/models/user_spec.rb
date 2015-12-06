@@ -16,4 +16,6 @@ RSpec.describe User, type: :model do
   	expect(user).not_to be_valid
   	expect(user.errors[:password].any?).to be_truthy
   end	
+  it {should have_many(:addresses)}
+  it {should accept_nested_attributes_for(:addresses)}
 end

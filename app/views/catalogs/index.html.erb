@@ -1,7 +1,8 @@
 <h1 style="text-align:center;letter-spacing:9px;color:rgb(58,193,98);font-size:51px;" 
 ><u>Catalouges</u> <%=image_tag 'catalog.png', id: "catalog"%></h1>
-
-
+<div id="paginate">
+<%= will_paginate @books, renderer: BootstrapPagination::Rails, class: "pull-left paginate" %>
+</div>
 <ul class="photo-grid books" d="books">
 <%@books.each do |book|%>	
 	<li class="box">
