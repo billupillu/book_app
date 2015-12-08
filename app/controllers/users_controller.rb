@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   private
 
     def find_users
-      @user = User.find(params[:id])
+      @user = User.find_by(token: params[:id])
     end
 
     def user_params
