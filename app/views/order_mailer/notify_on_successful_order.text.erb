@@ -1,0 +1,13 @@
+Dear <%=@customer.username%>
+
+Thankyou for purchasing, Please find below the details of your order: 
+
+<% @order.order_items.each do |item| %>
+<%= item.quantity %> x <%= item.book.title %> = <%= number_to_currency("#{item.price * item.quantity}") %>
+ <% end %>
+_________________________
+
+ Total order: <%= number_to_currency(@order.order_total) %>
+
+Yours faithfully,
+Sales Team (BookStore App)

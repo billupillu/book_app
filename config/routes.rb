@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-
-  get 'carts/show'
-
-  get 'carts/destroy'
-
 	root 'catalogs#index'
+ 	
 	get '/signup', to: 'users#new', as: 'signup'
 	get '/signin', to: 'sessions#new', as: 'signin'
 	post '/signin', to: 'sessions#create'
@@ -26,5 +22,6 @@ Rails.application.routes.draw do
 
 	resources :carts,only: [:show, :destroy]
 	resources :cart_items, only: [:create]
+	resources :orders, only: [:new, :create]
 
 end

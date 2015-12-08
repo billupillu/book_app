@@ -8,13 +8,21 @@
 			</header>
 
 			<%@cart.cart_items.each do |item|%>
-				<%=item.quantity%>&times;<%=item.book.title%><%="#{number_to_currency(item.line_total)}"%>
+				<%=item.quantity%>&times;<%=item.book.title%> = <%="#{number_to_currency(item.line_total)}"%>
 			<%end%>
 
 			<hr />
-
-			<strong>Total:</strong> <%=number_to_currency(@cart.total_sale)%>
-			<%=button_to "Clear Cart", cart_path(@cart), method: :delete, data: {confirm: "Are you sure to clear the cart"}, class: "btn btn-danger"%>
+			<br>
+			<%=button_to "Checkout", new_order_path, method: :get, class: "btn btn-success", id: "checkout"%>
+			<br>
+			<hr/>
+			<%=button_to "Clear Cart", cart_path(cart), method: :delete, data: {confirm: "Are you sure to clear the cart"}, class: "btn btn-danger", id: "clearcart"%>
 		</div>
 	</div>
 </section>
+<%=javascript_tag do%>
+	if($(location).attr('pathname') === '/orders/new'){
+		$("#checkout,#clearcart").hide();
+	}
+	else{}
+<%end%>

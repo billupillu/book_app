@@ -21,6 +21,10 @@ class Cart < ActiveRecord::Base
 
 		def total_sale
 			#require 'pry';binding.pry
-			cart_items.map {|item| item.line_total}.reduce(:+)
+			cart_items.map {|item| item.line_total}.reduce(:+) || 0.0
+		end
+
+		def total_sale_in_cents
+			(total_sale*100).to_i
 		end
 end

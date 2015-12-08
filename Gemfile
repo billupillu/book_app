@@ -18,6 +18,7 @@ gem 'chosen-rails'
 gem 'compass-rails'
 gem 'bcrypt'
 gem 'will_paginate-bootstrap', '1.0.1'
+gem 'stripe', source: "https://code.stripe.com"
 
 group :development, :test do
   gem 'byebug'
@@ -40,5 +41,6 @@ group :test do
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'shoulda-matchers', '2.8.0'
+  gem 'selenium-webdriver'
 end
 
