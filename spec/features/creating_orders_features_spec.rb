@@ -8,8 +8,6 @@ RSpec.feature "CreatingOrdersFeatures", type: :feature do
 	before {sign_in_as user}
 
 	scenario "create a valid book", js: true do
-		visit root_path
-
 		visit "/catalogs/#{book.id}"
 		click_button "Add To Cart"
 		click_button "Checkout"

@@ -1,10 +1,15 @@
+/*
+ *= require superhero.min
+ */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "rails_bootstrap_forms";
- @import "superhero";
+
  @import "chosen";
  @import "zoomText";
  @import "carts";
+ 
 
 #logo{width:100px;margin-left: 20%;}
 #myNavbar{margin-top: 4%;}

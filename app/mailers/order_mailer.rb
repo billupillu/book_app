@@ -15,4 +15,5 @@ class OrderMailer < ActionMailer::Base
       to: @customer.email,
       subject: 'Resetting Your Password'
   end
+
 end

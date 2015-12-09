@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	get '/signin', to: 'sessions#new', as: 'signin'
 	post '/signin', to: 'sessions#create'
 	get '/signout', to: 'sessions#destroy', as: 'signout'
+	get 'reset_password', to: 'password_resets#new'
 
 	namespace :admin do
 		get 'base/index'
@@ -23,5 +24,7 @@ Rails.application.routes.draw do
 	resources :carts,only: [:show, :destroy]
 	resources :cart_items, only: [:create]
 	resources :orders, only: [:new, :create]
+	resources :password_resets, only: [:create]
+	
 
 end
